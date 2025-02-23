@@ -82,14 +82,14 @@ export default function PokemonBattle() {
 					<button
 						type="button"
 						onClick={battlePokemon}
-						className="border-2 border-gray-300 px-6 py-3 bg-green-400 text-white rounded-lg text-lg font-semibold hover:bg-green-500 transition"
+						className="px-6 py-3 bg-green-400 text-white rounded-lg text-lg font-semibold hover:bg-green-500 transition"
 					>
 						Fight!
 					</button>
 					<button
 						type="button"
 						onClick={fetchRandomPokemon}
-						className="border-2 border-gray-300 px-6 py-3 bg-blue-400 text-white rounded-lg text-lg font-semibold hover:bg-blue-500 transition"
+						className="px-6 py-3 bg-blue-400 text-white rounded-lg text-lg font-semibold hover:bg-blue-500 transition"
 					>
 						New Battle
 					</button>
