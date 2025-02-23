@@ -1,11 +1,16 @@
 import clsx from "clsx";
 
-export default function PokemonCard({ pokemon, isWinner }) {
+export default function PokemonCard({
+	pokemon,
+	isWinner,
+	winningStat,
+	losingStat,
+}) {
 	return (
 		<div
 			className={clsx(
-				"max-w-sm p-6 rounded-2xl overflow-hidden shadow-lg bg-white border-2 border-solid",
-				isWinner ? "border-green-500 border-2" : "border-gray-200",
+				"max-w-sm p-6 rounded-2xl overflow-hidden shadow-lg bg-white border-4 border-solid",
+				isWinner ? "border-green-500" : "border-gray-200",
 			)}
 		>
 			<img
@@ -22,18 +27,27 @@ export default function PokemonCard({ pokemon, isWinner }) {
 
 			<div className="mt-4">
 				<div className="text-center">
-					{pokemon.stats.map((stat) => (
-						<p key={stat.stat.name} className="text-gray-700">
-							<span className="font-semibold capitalize">
-								{stat.stat.name}:
-							</span>{" "}
-							{stat.base_stat}
-						</p>
-					))}
-					<p className="text-gray-700">
-						<span className="font-semibold capitalize">Weight:</span>
-						{pokemon.weight}
-					</p>
+					{pokemon.stats.map((stat) => {
+						return (
+							<p
+								key={stat.stat.name}
+								className={
+									isWinner
+										? stat.stat.name === winningStat
+											? "text-green-500"
+											: "text-gray-600"
+										: stat.stat.name === losingStat
+											? "text-red-500"
+											: "text-gray-600"
+								}
+							>
+								<span className="font-semibold capitalize">
+									{stat.stat.name}:
+								</span>{" "}
+								{stat.base_stat}
+							</p>
+						);
+					})}
 				</div>
 			</div>
 		</div>
