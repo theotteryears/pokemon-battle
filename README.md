@@ -1,1 +1,1 @@
-www.pokemoncardtest.netlify.app
+https://pokemoncardtest.netlify.app
