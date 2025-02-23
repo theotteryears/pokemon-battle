@@ -5,6 +5,7 @@ export default function PokemonCard({
 	isWinner,
 	winningStat,
 	losingStat,
+	tieStat, // Pass tieStat from the parent component
 }) {
 	return (
 		<div
@@ -28,18 +29,23 @@ export default function PokemonCard({
 			<div className="mt-4">
 				<div className="text-center">
 					{pokemon.stats.map((stat) => {
+						// Determine if the stat is part of a tie
+						const isTie = stat.stat.name === tieStat;
+
 						return (
 							<p
 								key={stat.stat.name}
-								className={
+								className={clsx(
+									// Apply appropriate color based on the winner, loser, or tie
+									isTie && "text-yellow-500", // Highlight tie stat in yellow
 									isWinner
 										? stat.stat.name === winningStat
 											? "text-green-500"
 											: "text-gray-600"
 										: stat.stat.name === losingStat
 											? "text-red-500"
-											: "text-gray-600"
-								}
+											: "text-gray-600",
+								)}
 							>
 								<span className="font-semibold capitalize">
 									{stat.stat.name}:

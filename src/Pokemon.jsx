@@ -42,7 +42,7 @@ export default function PokemonBattle() {
 		const stat1 = pokemon1.stats[randomStatIndex];
 		const stat2 = pokemon2.stats[randomStatIndex];
 
-		setStatUsed(stat1.stat.name);
+		// setStatUsed(stat1.stat.name);
 
 		if (stat1.base_stat > stat2.base_stat) {
 			setWinner(pokemon1.name);
